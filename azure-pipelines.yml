@@ -15,3 +15,11 @@ steps:
   inputs:
     command: 'build'
     projects: 'k8s.helm.test/k8s.helm.test.csproj'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'itdepends-acr'
+    repository: 'itdepends'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
