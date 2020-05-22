@@ -1,4 +1,5 @@
 trigger:
+
 - master
 
 pool:
@@ -18,7 +19,8 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'itdepends-acr'
+    containerRegistry: 'itdepends-acr-connection'
+    repository: 'k8s.test.app'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 
