@@ -16,12 +16,12 @@ steps:
     command: 'build'
     projects: 'k8s.helm.test/k8s.helm.test.csproj'
 
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'itdepends-acr'
-#     repository: 'itdepends'
-#     command: 'buildAndPush'
-#     Dockerfile: '**/Dockerfile'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'itdepends-acr'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+
 
 # - task: OctopusCreateRelease@4
 #   inputs:
