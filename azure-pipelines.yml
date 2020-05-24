@@ -33,4 +33,10 @@ steps:
     DeployToEnvironment: 'Environments-1'
     DeploymentProgress: true
 
-    
+- task: OctopusDeployRelease@4
+  inputs:
+    OctoConnectedServiceName: 'Octopus-connection'
+    Space: 'Spaces-1'
+    Project: 'Projects-1'
+    ReleaseNumber: '$(Build.BuildId)'
+    Environments: 'Environments-1'
