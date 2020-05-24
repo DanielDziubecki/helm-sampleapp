@@ -23,21 +23,14 @@ steps:
     repository: 'k8s.test.app'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+- task: OctopusCreateRelease@4
+  inputs:
+    OctoConnectedServiceName: 'Octopus-connection'
+    Space: 'Spaces-1'
+    ProjectName: 'Projects-1'
+    ReleaseNumber: '$(Build.BuildId)'
+    Channel: 'Channels-1'
+    DeployToEnvironment: 'Environments-1'
+    DeploymentProgress: true
 
-
-# - task: OctopusCreateRelease@4
-#   inputs:
-#     OctoConnectedServiceName: 'ItDependsOctopusDeploy'
-#     Space: 'Spaces-1'
-#     ProjectName: 'Projects-1'
-#     ReleaseNumber: '$(Build.BuildNumber)'
-#     Channel: 'Channels-1'
-#     DeployToEnvironment: 'Environments-21'
-#     DeploymentProgress: true
-# - task: OctopusDeployRelease@4
-#   inputs:
-#     OctoConnectedServiceName: 'ItDependsOctopusDeploy'
-#     Space: 'Spaces-1'
-#     Project: 'Projects-1'
-#     ReleaseNumber: '$(Build.BuildNumber)'
-#     Environments: 'Environments-21'
+    
